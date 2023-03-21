@@ -35,7 +35,7 @@ const Search = ({ onSearchChange }) => {
             placeholder="Search for a city"
             debounceTimeout={700}
             value={search}
-            onchange={handleOnChange}
+            onChange={handleOnChange}
             loadOptions={loadOptions}
         />
     );
