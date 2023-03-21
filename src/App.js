@@ -5,15 +5,23 @@ import CurrentWeather from './components/current-weather/current-weather';
 function App() {
 
   const handleOnSearchChange = (searchData) => {
-    console.log(searchData);
-  }
+    const [lat, lng] = searchData.value.split(' ');
 
-  return (
-    <div className="container">
-      <Search onSearchChange={handleOnSearchChange} />
-      <CurrentWeather />
-    </div>
-  );
+    const CurrentWeatherFetch = async () => {
+      const response = await fetch(
+        
+
+      )
+
+    }
+
+    return (
+      <div className="container">
+        <Search onSearchChange={handleOnSearchChange} />
+        <CurrentWeather />
+      </div>
+    );
+  }
 }
 
 export default App;
