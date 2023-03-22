@@ -3,7 +3,7 @@ import Search from './components/search/search';
 import CurrentWeather from './components/current-weather/current-weather';
 import { WEATHER_API_URL, WEATHER_API_KEY } from './api';
 import { useState } from 'react';
-//import Forecast from './components/forecast/forecast';
+import Forecast from './components/forecast/forecast';
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -13,7 +13,7 @@ function App() {
     const [lat, lng] = searchData.value.split(" ");
 
     const weatherFetch = fetch(
-      `${WEATHER_API_URL}?lat=${lat}&lng=${lng}&params=airTemperature,cloudCover,humidity,precipitation,windSpeed,windDirection&start=${Math.floor(Date.now() / 1000)}&source=noaa`,
+      `${WEATHER_API_URL}?lat=${lat}&lng=${lng}&params=airTemperature,cloudCover,humidity,precipitation,pressure,windSpeed,windDirection&start=${Math.floor(Date.now() / 1000)}&source=noaa`,
       {
         headers: {
           'Authorization': `${WEATHER_API_KEY}`
