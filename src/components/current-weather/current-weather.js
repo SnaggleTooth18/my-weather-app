@@ -10,7 +10,7 @@ const CurrentWeather = ({ data }) => {
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
     const dayCurrent = CURRENT_DAYS[current.getDay()];
-    const curCity = data.city;
+
 
     console.log(date);
     console.log(dayCurrent);
@@ -21,6 +21,9 @@ const CurrentWeather = ({ data }) => {
             <CardContent>
                 <Typography gutterBottom variant="h4" align="center"  color="#4527A0">
                     {dayCurrent}
+                </Typography>
+                <Typography gutterBottom variant="h6" align="center"  fontWeight="Bold">
+                    {date}
                 </Typography>
                 <Typography gutterBottom variant="h5" align="center" fontWeight="Bold">
                     {data.city}
