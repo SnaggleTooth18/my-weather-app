@@ -1,8 +1,12 @@
-import { Accordion, AccordionItem, AccordionItemButton, AccordionItemHeading, AccordionItemPanel } from "react-accessible-accordion";
+// import { Accordion, AccordionItem, AccordionItemButton, AccordionItemHeading, AccordionItemPanel } from "react-accessible-accordion";
+import { Accordion, AccordionSummary, AccordionDetails, Typography, } from "@mui/material";
+import  ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import React from "react";
+
 
 const WEEK_DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-const Forecast = ({ data }) => {
+const Forecast = ({ data, tempNow }) => {
     const dayInAWeek = new Date().getDay();
     const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(WEEK_DAYS.slice(0, dayInAWeek));
 
@@ -10,25 +14,183 @@ const Forecast = ({ data }) => {
     console.log(data.days);
 
     return (
-        <>
-            <label className="title">Daily</label>
-            <Accordion allowZeroExpanded>
-                {data.days.splice(0, 0).map((idx) => (
-                    <AccordionItem key={idx}>
-                        <AccordionItemHeading>
-                            <AccordionItemButton>
-                                <div className="daily-item">
-                                    <label className="day">{forecastDays[idx]}</label>
-                                    <label className="description"></label>
-                                </div>
-                            </AccordionItemButton>
-                        </AccordionItemHeading>
-                        <AccordionItemPanel></AccordionItemPanel>
-                    </AccordionItem>
-                ))}
+        <div>
+            <Typography>Forecast</Typography>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panella-content" id="panella-header">
+                    <Typography>{forecastDays[0]}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {Math.round(data.days[0].airTemperature.noaa)}°C
+                    </Typography>
+                    <Typography>
+                        Cloud Cover: {Math.round(data.days[0].cloudCover.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Humidity: {Math.round(data.days[0].humidity.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Precipitation: {Math.round(data.days[0].precipitation.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Pressure: {Math.round(data.days[0].pressure.noaa)}hPa
+                    </Typography>
+                    <Typography>
+                        Wind Speed: {Math.round(data.days[0].windSpeed.noaa)}m/s
+                    </Typography>
+                    <Typography>
+                        Wind Direction: {Math.round(data.days[0].windDirection.noaa)}°
+                    </Typography>
+                </AccordionDetails>
             </Accordion>
-        </>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panella-content" id="panella-header">
+                    <Typography>{forecastDays[1]}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {Math.round(data.days[1].airTemperature.noaa)}°C
+                    </Typography>
+                    <Typography>
+                        Cloud Cover: {Math.round(data.days[1].cloudCover.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Humidity: {Math.round(data.days[1].humidity.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Precipitation: {Math.round(data.days[1].precipitation.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Pressure: {Math.round(data.days[1].pressure.noaa)}hPa
+                    </Typography>
+                    <Typography>
+                        Wind Speed: {Math.round(data.days[1].windSpeed.noaa)}m/s
+                    </Typography>
+                    <Typography>
+                        Wind Direction: {Math.round(data.days[1].windDirection.noaa)}°
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panella-content" id="panella-header">
+                    <Typography>{forecastDays[2]}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {Math.round(data.days[2].airTemperature.noaa)}°C
+                    </Typography>
+                    <Typography>
+                        Cloud Cover: {Math.round(data.days[2].cloudCover.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Humidity: {Math.round(data.days[2].humidity.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Precipitation: {Math.round(data.days[2].precipitation.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Pressure: {Math.round(data.days[2].pressure.noaa)}hPa
+                    </Typography>
+                    <Typography>
+                        Wind Speed: {Math.round(data.days[2].windSpeed.noaa)}m/s
+                    </Typography>
+                    <Typography>
+                        Wind Direction: {Math.round(data.days[2].windDirection.noaa)}°
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panella-content" id="panella-header">
+                    <Typography>{forecastDays[3]}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {Math.round(data.days[3].airTemperature.noaa)}°C
+                    </Typography>
+                    <Typography>
+                        Cloud Cover: {Math.round(data.days[3].cloudCover.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Humidity: {Math.round(data.days[3].humidity.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Precipitation: {Math.round(data.days[3].precipitation.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Pressure: {Math.round(data.days[3].pressure.noaa)}hPa
+                    </Typography>
+                    <Typography>
+                        Wind Speed: {Math.round(data.days[3].windSpeed.noaa)}m/s
+                    </Typography>
+                    <Typography>
+                        Wind Direction: {Math.round(data.days[3].windDirection.noaa)}°
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panella-content" id="panella-header">
+                    <Typography>{forecastDays[4]}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {Math.round(data.days[4].airTemperature.noaa)}°C
+                    </Typography>
+                    <Typography>
+                        Cloud Cover: {Math.round(data.days[4].cloudCover.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Humidity: {Math.round(data.days[4].humidity.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Precipitation: {Math.round(data.days[4].precipitation.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Pressure: {Math.round(data.days[4].pressure.noaa)}hPa
+                    </Typography>
+                    <Typography>
+                        Wind Speed: {Math.round(data.days[4].windSpeed.noaa)}m/s
+                    </Typography>
+                    <Typography>
+                        Wind Direction: {Math.round(data.days[4].windDirection.noaa)}°
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panella-content" id="panella-header">
+                    <Typography>{forecastDays[5]}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        {Math.round(data.days[5].airTemperature.noaa)}°C
+                    </Typography>
+                    <Typography>
+                        Cloud Cover: {Math.round(data.days[5].cloudCover.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Humidity: {Math.round(data.days[5].humidity.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Precipitation: {Math.round(data.days[5].precipitation.noaa)}%
+                    </Typography>
+                    <Typography>
+                        Pressure: {Math.round(data.days[5].pressure.noaa)}hPa
+                    </Typography>
+                    <Typography>
+                        Wind Speed: {Math.round(data.days[5].windSpeed.noaa)}m/s
+                    </Typography>
+                    <Typography>
+                        Wind Direction: {Math.round(data.days[5].windDirection.noaa)}°
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>
+
+
+
+        </div>
     );
 };
+
+
 
 export default Forecast;
