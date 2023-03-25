@@ -51,6 +51,8 @@ function App() {
       .then(async (response) => {
         const weatherResponse = await response[0].json();
 
+        console.log(response);
+
         const days = [
           weatherResponse.hours[24],
           weatherResponse.hours[48],
@@ -76,7 +78,7 @@ function App() {
 
   return (
     <Container>
-      <GeoLocationButton onSearchChange={event => handleOnSearchChange(searchData)} setUserLocation={setUserLocation} />
+
       <Search onSearchChange={handleOnSearchChange}/>
       {currentWeather && <CurrentWeather data={currentWeather}/>}
       {forecast && <Forecast data={forecast} />}

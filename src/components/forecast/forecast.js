@@ -1,6 +1,7 @@
 // import { Accordion, AccordionItem, AccordionItemButton, AccordionItemHeading, AccordionItemPanel } from "react-accessible-accordion";
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 
 const WEEK_DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -16,11 +17,16 @@ const Forecast = ({ data }) => {
         <div>
             <Typography>Forecast</Typography>
             <Accordion>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panella-content" id="panella-header">
+                <AccordionSummary 
+                expandIcon={<ExpandMoreIcon />} 
+                aria-controls="panella-content" 
+                id="panella-header"
+                sx={{bgColor: "#330e62", hover: {bgColor: "#472671"}}}
+                >
                     <Typography fontWeight="bold">{forecastDays[0]}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography align="center">
+                    <Typography align="center" color="#330e62" variant="h4">
                         {Math.round(data.days[0].airTemperature.noaa)}°C
                     </Typography>
                     <Typography align="center">

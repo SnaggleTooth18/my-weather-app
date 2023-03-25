@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Card, CardContent, Stack, Typography } from "@mui/material";
-import "./current-weather.css";
+
 
 const CUR_MONTH = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
 
@@ -17,9 +17,9 @@ const CurrentWeather = ({ data }) => {
 
 
     return (
-        <Box sx={{ flexGrow: 1  }} >
+        <Box sx={{ flexGrow: 1 }} >
             <Card variant="outlined" sx={{ justifycontent: 'center' }}>
-                <CardContent color="#394655">
+                <CardContent >
 
                     <Typography variant="h4" align="center" color="#330e62"  gutterBottom>
                         {dayCurrent}
