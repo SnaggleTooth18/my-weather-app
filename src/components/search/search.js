@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../../api";
 
-const Search = ({ onSearchChange }) => {
+const Search = ({ onSearchChange, lat, long }) => {
 
     const [search, setSearch] = useState(null);
+
+    useEffect(() => {
+        setSearch(`${lat} ${long}`);
+        console.log(`${lat} ${long}`);
+    }, [lat, long]);
 
     const loadOptions = (inputValue) => {
         return fetch(
@@ -28,6 +33,7 @@ const Search = ({ onSearchChange }) => {
     const handleOnChange = (searchData) => {
         setSearch(searchData);
         onSearchChange(searchData);
+        console.log(searchData)
     };
 
     return (
@@ -35,7 +41,7 @@ const Search = ({ onSearchChange }) => {
             placeholder="Search for a city"
             debounceTimeout={700}
             value={search}
-            onchange={handleOnChange}
+            onChange={handleOnChange}
             loadOptions={loadOptions}
         />
     );
