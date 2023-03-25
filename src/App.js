@@ -10,9 +10,6 @@ import { Container } from '@mui/system';
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
-  const [currentTempUnit, setCurrentTempUnit] = useState(null);
-  const [userLocation, setUserLocation] = useState(null);
-
   const [lat, setLat] = useState(null);
   const [long, setLong] = useState(null);
   const [error, setError] = useState(null);
@@ -30,7 +27,6 @@ function App() {
               console.log(lat, long);
           }, () => {
               setError('Something went wrong getting your location!');
-              
           });
       }
   });
