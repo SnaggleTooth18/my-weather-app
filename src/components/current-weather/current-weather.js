@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+import { Box, Card, CardContent, Stack, Typography } from "@mui/material";
 import "./current-weather.css";
 
 const CUR_MONTH = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
@@ -17,48 +17,54 @@ const CurrentWeather = ({ data }) => {
 
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-        <Card variant="outlined" sx={{ justifycontent: 'center' }}>
-            <CardContent>
+        <Box sx={{ flexGrow: 1  }} >
+            <Card variant="outlined" sx={{ justifycontent: 'center' }}>
+                <CardContent color="#394655">
 
-                <Typography gutterBottom variant="h4" align="center" color="#4527A0">
-                    {dayCurrent}
-                </Typography>
-                <Typography gutterBottom variant="h6" align="center" color="" fontWeight="Bold">
-                    {date}
-                </Typography>
-                <Typography gutterBottom variant="h5" align="center" fontWeight="Bold">
-                    {data.city}
-                </Typography>
-                <Typography gutterBottom variant="h2" align="center" color="#5E35B1">
-                    {Math.round(data.airTemperature.noaa)}°C
-                </Typography>
-
-                <Typography gutterBottom variant="h6" align="center" fontWeight="Bold">
-                    Details
-                </Typography>
-
-                    <Typography paragraph variant="body 1" align="center" color="#90A4AE" fontWeight="Bold">
-                        Cloud Cover: {Math.round(data.cloudCover.noaa)}%
+                    <Typography variant="h4" align="center" color="#330e62"  gutterBottom>
+                        {dayCurrent}
                     </Typography>
-                    <Typography paragraph variant="body 1" align="center" color="#78909C" fontWeight="Bold">
-                        Humidity: {Math.round(data.humidity.noaa)}%
+                    <Typography variant="h6" align="center" color="" fontWeight="Bold" gutterBottom>
+                        {date}
                     </Typography>
-                    <Typography paragraph variant="body 1" align="center" color="#546E7A" fontWeight="Bold">
-                        Precipitation: {data.precipitation.noaa} mm/h
+                    <Typography variant="h5" align="center" fontWeight="Bold" gutterBottom>
+                        {data.city}
                     </Typography>
-                    <Typography paragraph variant="body 1" align="center" color="#455A64" fontWeight="Bold">
-                        Pressure: {Math.round(data.pressure.noaa)} hPa
-                    </Typography>
-                    <Typography paragraph variant="body 1" align="center" color="#37474F" fontWeight="Bold">
-                        Wind Speed: {data.windSpeed.noaa} m/s
-                    </Typography>
-                    <Typography paragraph variant="body 1" align="center" color="#263238" fontWeight="Bold">
-                        Wind Direction: {Math.round(data.windDirection.noaa)}°
+                    <Typography variant="h2" align="center" color="#330e62" gutterBottom>
+                        {Math.round(data.airTemperature.noaa)}°C
                     </Typography>
 
-            </CardContent>
-        </Card >
+                    <Typography variant="h5" align="center" fontWeight="Bold" color="#303030" gutterBottom>
+                        Details
+                    </Typography>
+                    <Box sx={{ width: '100%' }} display="flex" justifyContent="center">
+                        <Stack direction="row" spacing={16}>
+                            <Box>
+                            <Typography paragraph variant="body 1" color="#303030" fontWeight="Bold">
+                                Cloud Cover: {Math.round(data.cloudCover.noaa)}%
+                            </Typography>
+                            <Typography paragraph variant="body 1" color="#303030" fontWeight="Bold">
+                                Humidity: {Math.round(data.humidity.noaa)}%
+                            </Typography>
+                            <Typography paragraph variant="body 1"  color="#303030" fontWeight="Bold">
+                                Precipitation: {data.precipitation.noaa} mm/h
+                            </Typography>
+                            </Box>
+                            <Box>
+                            <Typography paragraph variant="body 1" color="#303030" fontWeight="Bold">
+                                Pressure: {Math.round(data.pressure.noaa)} hPa
+                            </Typography>
+                            <Typography paragraph variant="body 1" color="#303030" fontWeight="Bold">
+                                Wind Speed: {data.windSpeed.noaa} m/s
+                            </Typography>
+                            <Typography paragraph variant="body 1" color="#303030" fontWeight="Bold">
+                                Wind Direction: {Math.round(data.windDirection.noaa)}°
+                            </Typography>
+                            </Box>
+                        </Stack>
+                    </Box>
+                </CardContent>
+            </Card >
         </Box>
     );
 };
