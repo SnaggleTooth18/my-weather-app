@@ -1,10 +1,14 @@
 import './App.css';
+
 import Search from './components/search/search';
 import CurrentWeather from './components/current-weather/current-weather';
 import { WEATHER_API_URL, WEATHER_API_KEY } from './api';
 import { useState, useEffect } from 'react';
 import Forecast from './components/forecast/forecast';
 import { Container } from '@mui/system';
+import EasterBreaker from './components/easter-eggs/easter-breaker';
+import EasterEggs from './components/easter-eggs/easter-eggs';
+
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -15,7 +19,7 @@ function App() {
 
   const geolocationAPI = navigator.geolocation;
 
-  useEffect(() => {
+  useEffect((getUserCoordinates) => {
     if (!geolocationAPI) {
       setError('Geolocation API is not available in your browser!')
     } else {
@@ -68,15 +72,13 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  // console.log(currentWeather);
-  // console.log(forecast);
-
   return (
     <Container>
-
       <Search onSearchChange={handleOnSearchChange} />
+      <EasterBreaker/>
       {currentWeather && <CurrentWeather data={currentWeather} />}
       {forecast && <Forecast data={forecast} />}
+      {currentWeather && <EasterEggs data={currentWeather} />}
     </Container>
   );
 }
