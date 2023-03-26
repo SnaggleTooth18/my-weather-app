@@ -1,8 +1,15 @@
+import { Button } from '@mui/material';
 import easterBreaker from 'easter-break';
+
 
 const EasterBreaker = () => {
     return (
-        <button onClick={easterBreaker}>Break Me</button>
+        <Button
+            variant='contained'
+            onClick={easterBreaker}
+        >
+            Break Me
+        </Button>
     );
 }
 

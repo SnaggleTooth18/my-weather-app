@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../../api";
-// import GeoLocationButton from "../geolocation/geolocation";
 
-const Search = ({ onSearchChange, lat, long }) => {
+const Search = ({ onSearchChange }) => {
 
     const [search, setSearch] = useState(null);
-
-    // useEffect(() => {
-    //     setSearch(`${lat} ${long}`);
-    //     console.log(`${lat} ${long}`);
-    // }, [lat, long]);
 
     const loadOptions = (inputValue) => {
         return fetch(
@@ -34,7 +28,6 @@ const Search = ({ onSearchChange, lat, long }) => {
     const handleOnChange = (searchData) => {
         setSearch(searchData);
         onSearchChange(searchData);
-        console.log(searchData)
     };
 
     return (
@@ -46,7 +39,6 @@ const Search = ({ onSearchChange, lat, long }) => {
                 onChange={handleOnChange}
                 loadOptions={loadOptions}
             />
-            {/* <GeoLocationButton handleOnChange={event => { handleOnChange({ value: `${lat} ${long}` }) }} /> */}
         </>
     );
 };

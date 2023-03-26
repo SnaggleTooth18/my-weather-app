@@ -1,38 +1,18 @@
 import './App.css';
-
 import Search from './components/search/search';
 import CurrentWeather from './components/current-weather/current-weather';
 import { WEATHER_API_URL, WEATHER_API_KEY } from './api';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Forecast from './components/forecast/forecast';
 import { Container } from '@mui/system';
 import EasterBreaker from './components/easter-eggs/easter-breaker';
 import EasterEggs from './components/easter-eggs/easter-eggs';
+import GeoLocationButton from './components/geolocation/geolocation';
 
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
-  const [lat, setLat] = useState(null);
-  const [long, setLong] = useState(null);
-  const [error, setError] = useState(null);
-
-  const geolocationAPI = navigator.geolocation;
-
-  useEffect((getUserCoordinates) => {
-    if (!geolocationAPI) {
-      setError('Geolocation API is not available in your browser!')
-    } else {
-      geolocationAPI.getCurrentPosition((position) => {
-        const { coords } = position;
-        setLat(coords.latitude);
-        setLong(coords.longitude);
-        // console.log(lat, long);
-      }, () => {
-        setError('Something went wrong getting your location!');
-      });
-    }
-  });
 
   const handleOnSearchChange = (searchData) => {
     const [lat, lng] = searchData.value.split(" ");
@@ -49,8 +29,6 @@ function App() {
     Promise.all([weatherFetch])
       .then(async (response) => {
         const weatherResponse = await response[0].json();
-
-        // console.log(response);
 
         const days = [
           weatherResponse.hours[24],
@@ -75,7 +53,8 @@ function App() {
   return (
     <Container>
       <Search onSearchChange={handleOnSearchChange} />
-      <EasterBreaker/>
+      <GeoLocationButton handleOnSearchChange={handleOnSearchChange} />
+      <EasterBreaker />
       {currentWeather && <CurrentWeather data={currentWeather} />}
       {forecast && <Forecast data={forecast} />}
       {currentWeather && <EasterEggs data={currentWeather} />}
