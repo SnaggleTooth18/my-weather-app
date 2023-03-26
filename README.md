@@ -1,3 +1,26 @@
+# 7 Day React Weather App
+
+This is a 7 day weather app that can be used by anyone to quickly and easily check the weather for any location. Whether you're planning a trip, preparing for an outdoor event, or just curious about the weather in your area, this app has got you covered. The app uses the Stormglass.io API to pull weather data.
+
+You can view the live app at: https://snaggletooth18.github.io/my-weather-app/
+
+## Features:
+7 day weather forecast\
+Current weather data\
+Geolocation functionality to display weather data for your current location\
+Hidden Easter eggs
+
+## Usage
+To use the app, simply enter a location in the search bar or click on the geolocation button to display weather data for your current location.
+
+You can also find a few hidden Easter eggs within the app!
+
+The easter eggs are tide to specific locations.
+
+## Contributing
+
+If you would like to contribute to the project, feel free to submit a pull request.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
