@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function GeoLocationButton({handleOnSearchChange}) {
+function GeoLocationButton({ handleOnSearchChange }) {
     const [lat, setLat] = useState(null);
     const [long, setLong] = useState(null);
     const [error, setError] = useState(null);
@@ -25,8 +25,8 @@ function GeoLocationButton({handleOnSearchChange}) {
 
     return (
 
-        <button 
-            variant="contained" 
+        <button
+            variant="contained"
             onClick={() => {
                 getUserCoordinates();
                 handleOnSearchChange(`${lat} ${long}`);
@@ -35,7 +35,7 @@ function GeoLocationButton({handleOnSearchChange}) {
             Get my location
         </button>
     );
-   
+
 
 
 

@@ -4,7 +4,6 @@ import CurrentWeather from './components/current-weather/current-weather';
 import { WEATHER_API_URL, WEATHER_API_KEY } from './api';
 import { useState, useEffect } from 'react';
 import Forecast from './components/forecast/forecast';
-import GeoLocationButton from './components/geolocation/geolocation';
 import { Container } from '@mui/system';
 
 function App() {
@@ -17,18 +16,18 @@ function App() {
   const geolocationAPI = navigator.geolocation;
 
   useEffect(() => {
-      if (!geolocationAPI) {
-          setError('Geolocation API is not available in your browser!')
-      } else {
-          geolocationAPI.getCurrentPosition((position) => {
-              const { coords } = position;
-              setLat(coords.latitude);
-              setLong(coords.longitude);
-              console.log(lat, long);
-          }, () => {
-              setError('Something went wrong getting your location!');
-          });
-      }
+    if (!geolocationAPI) {
+      setError('Geolocation API is not available in your browser!')
+    } else {
+      geolocationAPI.getCurrentPosition((position) => {
+        const { coords } = position;
+        setLat(coords.latitude);
+        setLong(coords.longitude);
+        // console.log(lat, long);
+      }, () => {
+        setError('Something went wrong getting your location!');
+      });
+    }
   });
 
   const handleOnSearchChange = (searchData) => {
@@ -47,7 +46,7 @@ function App() {
       .then(async (response) => {
         const weatherResponse = await response[0].json();
 
-        console.log(response);
+        // console.log(response);
 
         const days = [
           weatherResponse.hours[24],
@@ -69,14 +68,14 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  console.log(currentWeather);
-  console.log(forecast);
+  // console.log(currentWeather);
+  // console.log(forecast);
 
   return (
     <Container>
 
-      <Search onSearchChange={handleOnSearchChange}/>
-      {currentWeather && <CurrentWeather data={currentWeather}/>}
+      <Search onSearchChange={handleOnSearchChange} />
+      {currentWeather && <CurrentWeather data={currentWeather} />}
       {forecast && <Forecast data={forecast} />}
     </Container>
   );

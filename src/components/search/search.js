@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_API_URL, geoApiOptions } from "../../api";
-import GeoLocationButton from "../geolocation/geolocation";
+// import GeoLocationButton from "../geolocation/geolocation";
 
 const Search = ({ onSearchChange, lat, long }) => {
 
@@ -39,15 +39,14 @@ const Search = ({ onSearchChange, lat, long }) => {
 
     return (
         <>
-        <AsyncPaginate
-            placeholder="Search for a city"
-            debounceTimeout={700}
-            value={search}
-            onChange={handleOnChange}
-            loadOptions={loadOptions}
-        />
-
-            <GeoLocationButton handleOnChange={event => {handleOnChange({value: `${lat} ${long}` })}} />
+            <AsyncPaginate
+                placeholder="Search for a city"
+                debounceTimeout={700}
+                value={search}
+                onChange={handleOnChange}
+                loadOptions={loadOptions}
+            />
+            {/* <GeoLocationButton handleOnChange={event => { handleOnChange({ value: `${lat} ${long}` }) }} /> */}
         </>
     );
 };
