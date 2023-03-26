@@ -10,6 +10,8 @@ import EasterEggs from './components/easter-eggs/easter-eggs';
 import GeoLocationButton from './components/geolocation/geolocation';
 
 
+
+
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);

@@ -24,6 +24,7 @@ function GeoLocationButton({ handleOnSearchChange }) {
         <>
             <Button
                 variant="contained"
+                sx={{ bgcolor: "#330e62", ":hover": { bgcolor: "#4a148f" } }}
                 onClick={() => {
                     getUserCoordinates();
                 }}
